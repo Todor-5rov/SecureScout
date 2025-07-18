@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useAccount } from "wagmi";
 import type { Role } from "../types";
 import {
-  bookingEscrowModuleUserRegistryAbi as userRegistryAbi,
-  bookingEscrowModuleUserRegistryAddress as userRegistryAddress,
+  secureScoutSetupModuleUserRegistryAbi as userRegistryAbi,
+  secureScoutSetupModuleUserRegistryAddress as userRegistryAddress,
 } from "../generated";
 import { useWriteContract } from "wagmi";
 import { fetchLocationSuggestions } from "../utils/geocode.ts";
@@ -29,6 +29,7 @@ export function Register({
   const [error, setError] = useState<string | null>(null);
   const account = useAccount();
   const { writeContractAsync } = useWriteContract();
+  const [bio, setBio] = useState("");
 
   async function handleLocationInput(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value;
@@ -58,17 +59,18 @@ export function Register({
         await writeContractAsync({
           abi: userRegistryAbi,
           address: userRegistryAddress[420420422],
-          functionName: "registerAsAgent",
-          args: [platform, BigInt(price)],
+          functionName: "registerAgent",
+          args: [platform, "", service, BigInt(price), selectedLocation.label],
         });
-        onRegister(role, platform, BigInt(price), selectedLocation);
+        onRegister("Agent");
       } else if (role === "Consumer") {
         await writeContractAsync({
           abi: userRegistryAbi,
           address: userRegistryAddress[420420422],
-          functionName: "registerAsConsumer",
+          functionName: "registerScout",
+          args: [platform, "", selectedLocation?.label || ""],
         });
-        onRegister(role);
+        onRegister("Consumer");
       }
     } catch (err: any) {
       setError(err?.message || "Registration failed");
@@ -79,92 +81,112 @@ export function Register({
 
   if (!account.addresses || account.addresses.length === 0) {
     return (
-      <div className="p-4 text-center">Connect your wallet to register.</div>
+      <div className="min-h-screen w-screen flex flex-col bg-gradient-to-br from-blue-50 to-blue-200 px-0">
+        <div className="flex-1 flex items-center justify-center">
+          <div className="p-4 text-center bg-white rounded shadow">
+            Connect your wallet to register.
+          </div>
+        </div>
+      </div>
     );
   }
 
   return (
-    <form
-      className="max-w-md mx-auto p-4 bg-white rounded shadow"
-      onSubmit={handleSubmit}
-    >
-      <h2 className="text-xl font-bold mb-4">Register</h2>
-      <div className="mb-4">
-        <label className="block mb-1">Role</label>
-        <select
-          className="w-full border rounded p-2"
-          value={role}
-          onChange={(e) => setRole(e.target.value as Role)}
+    <div className="min-h-screen w-screen flex flex-col bg-gradient-to-br from-blue-50 to-blue-200 px-0">
+      <div className="flex-1 flex items-center justify-center">
+        <form
+          className="w-full md:max-w-md p-6 bg-white rounded-lg shadow flex flex-col"
+          onSubmit={handleSubmit}
         >
-          <option value="None">Select...</option>
-          <option value="Agent">Agent</option>
-          <option value="Consumer">Consumer</option>
-        </select>
+          <h2 className="text-xl font-bold mb-4 text-center">Register</h2>
+          <div className="mb-4">
+            <label className="block mb-1">Role</label>
+            <select
+              className="w-full border rounded p-2"
+              value={role}
+              onChange={(e) => setRole(e.target.value as Role)}
+            >
+              <option value="None">Select...</option>
+              <option value="Agent">Agent</option>
+              <option value="Consumer">Consumer</option>
+            </select>
+          </div>
+          {role === "Agent" && (
+            <>
+              <div className="mb-4">
+                <label className="block mb-1">Platform</label>
+                <input
+                  className="w-full border rounded p-2"
+                  value={platform}
+                  onChange={(e) => setPlatform(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block mb-1">Service</label>
+                <input
+                  className="w-full border rounded p-2"
+                  value={service}
+                  onChange={(e) => setService(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block mb-1">Price (PAS)</label>
+                <input
+                  className="w-full border rounded p-2"
+                  type="number"
+                  min="0"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block mb-1">Location</label>
+                <input
+                  className="w-full border rounded p-2"
+                  value={locationQuery}
+                  onChange={handleLocationInput}
+                  required
+                />
+                {locationSuggestions.length > 0 && (
+                  <ul className="border rounded bg-white mt-1 max-h-40 overflow-y-auto">
+                    {locationSuggestions.map((suggestion) => (
+                      <li
+                        key={suggestion.id}
+                        className="p-2 hover:bg-blue-100 cursor-pointer"
+                        onClick={() => handleLocationSelect(suggestion)}
+                      >
+                        {suggestion.label}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Bio</label>
+                <textarea
+                  className="w-full border rounded px-3 py-2"
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
+                  rows={3}
+                  placeholder="Tell us about yourself..."
+                  required
+                />
+              </div>
+            </>
+          )}
+          <button
+            className="w-full bg-blue-600 text-white py-2 rounded font-semibold mt-4"
+            type="submit"
+            disabled={pending}
+          >
+            {pending ? "Registering..." : "Register"}
+          </button>
+          {error && <div className="text-red-600 mt-2">{error}</div>}
+        </form>
       </div>
-      {role === "Agent" && (
-        <>
-          <div className="mb-4">
-            <label className="block mb-1">Platform</label>
-            <input
-              className="w-full border rounded p-2"
-              value={platform}
-              onChange={(e) => setPlatform(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block mb-1">Service</label>
-            <input
-              className="w-full border rounded p-2"
-              value={service}
-              onChange={(e) => setService(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block mb-1">Price (PAS)</label>
-            <input
-              className="w-full border rounded p-2"
-              type="number"
-              min="0"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block mb-1">Location</label>
-            <input
-              className="w-full border rounded p-2"
-              value={locationQuery}
-              onChange={handleLocationInput}
-              placeholder="Type country, city, or address"
-              required
-            />
-            {locationSuggestions.length > 0 && (
-              <ul className="border rounded bg-white mt-1 max-h-40 overflow-y-auto z-10">
-                {locationSuggestions.map((s, i) => (
-                  <li
-                    key={i}
-                    className="p-2 hover:bg-blue-100 cursor-pointer"
-                    onClick={() => handleLocationSelect(s)}
-                  >
-                    {s.label}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </>
-      )}
-      {error && <div className="text-red-600 mb-2">{error}</div>}
-      <button
-        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 disabled:opacity-50"
-        type="submit"
-        disabled={role === "None" || pending}
-      >
-        {pending ? "Registering..." : "Register"}
-      </button>
-    </form>
+    </div>
   );
 }

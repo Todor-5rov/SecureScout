@@ -4,3 +4,4 @@
 export type { AgentRegistry } from "./AgentRegistry";
 export type { AgentRegistryOLD } from "./AgentRegistryOLD";
 export type { ConsumerRegistry } from "./ConsumerRegistry";
+export type { UserRegistry } from "./UserRegistry";

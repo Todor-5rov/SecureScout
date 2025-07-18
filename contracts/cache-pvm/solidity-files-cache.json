@@ -1,118 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\AgentRegistry.sol": {
-      "lastModificationDate": 1752762687114,
-      "contentHash": "7e52bc03ef6d9a8996f83db7d39c60fa",
-      "sourceName": "contracts/AgentRegistry.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "AgentRegistry"
-      ]
-    },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\BookingEscrow.sol": {
-      "lastModificationDate": 1752759274080,
-      "contentHash": "986899150c6edea358751f5a879c5d53",
-      "sourceName": "contracts/BookingEscrow.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "BookingEscrow"
-      ]
-    },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\ConsumerRegistry.sol": {
-      "lastModificationDate": 1752762687163,
-      "contentHash": "c50edbfe1a7790ba22e232f8c08105e2",
-      "sourceName": "contracts/ConsumerRegistry.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "ConsumerRegistry"
-      ]
-    },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\Token.sol": {
-      "lastModificationDate": 1752751608901,
-      "contentHash": "5c28ec3297adcca5a037900819181d37",
-      "sourceName": "contracts/Token.sol",
+    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\JobRegistry.sol": {
+      "lastModificationDate": 1752829660568,
+      "contentHash": "0d8f93eae60edb26c49627a7d9ee3bec",
+      "sourceName": "contracts/JobRegistry.sol",
       "solcConfig": {
         "version": "0.8.28",
         "settings": {
@@ -138,23 +30,21 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/utils/Pausable.sol",
-        "@openzeppelin/contracts/access/AccessControl.sol",
-        "@openzeppelin/contracts/access/IAccessControl.sol"
+        "./UserRegistry.sol"
       ],
       "versionPragmas": [
-        "^0.8.28"
+        "^0.8.20"
       ],
       "artifacts": [
-        "MyToken"
+        "JobRegistry"
       ]
     },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\access\\IAccessControl.sol": {
-      "lastModificationDate": 1752749296749,
-      "contentHash": "80621031deacf7066ec81277f9b1463a",
-      "sourceName": "@openzeppelin/contracts/access/IAccessControl.sol",
+    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\UserRegistry.sol": {
+      "lastModificationDate": 1752832380556,
+      "contentHash": "0f5eac59896902e621b4966b4d01787b",
+      "sourceName": "contracts/UserRegistry.sol",
       "solcConfig": {
         "version": "0.8.28",
         "settings": {
@@ -179,16 +69,57 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/utils/Pausable.sol"
+      ],
       "versionPragmas": [
         "^0.8.20"
       ],
       "artifacts": [
-        "IAccessControl"
+        "UserRegistry"
+      ]
+    },
+    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
+      "lastModificationDate": 1752778003642,
+      "contentHash": "d3c790edc9ccf808a17c5a6cd13614fd",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi"
+              ]
+            }
+          },
+          "resolc": {
+            "version": "latest",
+            "compilerSource": "npm",
+            "settings": {
+              "optimizer": {}
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Ownable"
       ]
     },
     "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\Pausable.sol": {
-      "lastModificationDate": 1752749296954,
+      "lastModificationDate": 1752778003655,
       "contentHash": "0d47b53e10b1985efbb396f937626279",
       "sourceName": "@openzeppelin/contracts/utils/Pausable.sol",
       "solcConfig": {
@@ -225,128 +156,8 @@
         "Pausable"
       ]
     },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\access\\AccessControl.sol": {
-      "lastModificationDate": 1752749296110,
-      "contentHash": "849b15469d8e2bd01b49e6c632e448e7",
-      "sourceName": "@openzeppelin/contracts/access/AccessControl.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IAccessControl.sol",
-        "../utils/Context.sol",
-        "../utils/introspection/ERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "AccessControl"
-      ]
-    },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\ERC20Burnable.sol": {
-      "lastModificationDate": 1752749296544,
-      "contentHash": "273d8d24b06f67207dd5f35c3a0c1086",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [
-        "../ERC20.sol",
-        "../../../utils/Context.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "ERC20Burnable"
-      ]
-    },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol": {
-      "lastModificationDate": 1752749296541,
-      "contentHash": "57d79df281f57bbb1b09214c7914f877",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC20.sol",
-        "./extensions/IERC20Metadata.sol",
-        "../../utils/Context.sol",
-        "../../interfaces/draft-IERC6093.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "ERC20"
-      ]
-    },
     "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
-      "lastModificationDate": 1752749296284,
+      "lastModificationDate": 1752778003060,
       "contentHash": "67bfbc07588eb8683b3fd8f6f909563e",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -381,10 +192,10 @@
         "Context"
       ]
     },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
-      "lastModificationDate": 1752749296485,
-      "contentHash": "7c03c1e37c3dc24eafb76dc2b8a5c3a6",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\SecureScoutHub.sol": {
+      "lastModificationDate": 1752828817468,
+      "contentHash": "ff3e4d09a118f9a686af125dbcf602b6",
+      "sourceName": "contracts/SecureScoutHub.sol",
       "solcConfig": {
         "version": "0.8.28",
         "settings": {
@@ -410,129 +221,24 @@
         }
       },
       "imports": [
-        "./IERC165.sol"
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/utils/Pausable.sol",
+        "./UserRegistry.sol",
+        "./JobRegistry.sol",
+        "./PaymentRegistry.sol",
+        "./RatingRegistry.sol"
       ],
       "versionPragmas": [
         "^0.8.20"
       ],
       "artifacts": [
-        "ERC165"
+        "SecureScoutHub"
       ]
     },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
-      "lastModificationDate": 1752749296800,
-      "contentHash": "bf0119eb2a570f219729ff38b6cd1df8",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC165"
-      ]
-    },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\interfaces\\draft-IERC6093.sol": {
-      "lastModificationDate": 1752749296375,
-      "contentHash": "267d92fe4de67b1bdb3302c08f387dbf",
-      "sourceName": "@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC1155Errors",
-        "IERC20Errors",
-        "IERC721Errors"
-      ]
-    },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol": {
-      "lastModificationDate": 1752749296818,
-      "contentHash": "8f19f64d2adadf448840908bbaf431c8",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-      "solcConfig": {
-        "version": "0.8.28",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi"
-              ]
-            }
-          },
-          "resolc": {
-            "version": "latest",
-            "compilerSource": "npm",
-            "settings": {
-              "optimizer": {}
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC20"
-      ]
-    },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\IERC20Metadata.sol": {
-      "lastModificationDate": 1752749296822,
-      "contentHash": "794db3115001aa372c79326fcfd44b1f",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\RatingRegistry.sol": {
+      "lastModificationDate": 1752828760773,
+      "contentHash": "5396bff7e63730d4160b08eb5acaeb55",
+      "sourceName": "contracts/RatingRegistry.sol",
       "solcConfig": {
         "version": "0.8.28",
         "settings": {
@@ -558,19 +264,64 @@
         }
       },
       "imports": [
-        "../IERC20.sol"
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/utils/Pausable.sol",
+        "./UserRegistry.sol",
+        "./JobRegistry.sol"
       ],
       "versionPragmas": [
         "^0.8.20"
       ],
       "artifacts": [
-        "IERC20Metadata"
+        "RatingRegistry"
       ]
     },
-    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\UserRegistry.sol": {
-      "lastModificationDate": 1752762810022,
-      "contentHash": "d299411753bed1449fab1cb5ed838c79",
-      "sourceName": "contracts/UserRegistry.sol",
+    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\PaymentRegistry.sol": {
+      "lastModificationDate": 1752827275195,
+      "contentHash": "573f01716e69dcb96aec36a3ea94097c",
+      "sourceName": "contracts/PaymentRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi"
+              ]
+            }
+          },
+          "resolc": {
+            "version": "latest",
+            "compilerSource": "npm",
+            "settings": {
+              "optimizer": {}
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/utils/Pausable.sol",
+        "@openzeppelin/contracts/utils/ReentrancyGuard.sol",
+        "./UserRegistry.sol",
+        "./JobRegistry.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "PaymentRegistry"
+      ]
+    },
+    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\ReentrancyGuard.sol": {
+      "lastModificationDate": 1752778003663,
+      "contentHash": "190613e556d509d9e9a0ea43dc5d891d",
+      "sourceName": "@openzeppelin/contracts/utils/ReentrancyGuard.sol",
       "solcConfig": {
         "version": "0.8.28",
         "settings": {
@@ -600,8 +351,45 @@
         "^0.8.20"
       ],
       "artifacts": [
-        "AgentRegistryOLD",
-        "ConsumerRegistry"
+        "ReentrancyGuard"
+      ]
+    },
+    "C:\\Users\\User\\Desktop\\SecureScout\\contracts\\contracts\\SimpleTest.sol": {
+      "lastModificationDate": 1752795725237,
+      "contentHash": "21527233369e839bc5be7712022b2a51",
+      "sourceName": "contracts/SimpleTest.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi"
+              ]
+            }
+          },
+          "resolc": {
+            "version": "latest",
+            "compilerSource": "npm",
+            "settings": {
+              "optimizer": {}
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SimpleTest"
       ]
     }
   }

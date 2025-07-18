@@ -4,3 +4,4 @@
 export { AgentRegistry__factory } from "./AgentRegistry__factory";
 export { AgentRegistryOLD__factory } from "./AgentRegistryOLD__factory";
 export { ConsumerRegistry__factory } from "./ConsumerRegistry__factory";
+export { UserRegistry__factory } from "./UserRegistry__factory";

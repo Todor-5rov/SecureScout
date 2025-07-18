@@ -1,9 +1,9 @@
 import { useState } from "react";
 import type { AgentInfo } from "../types";
-import {
-  bookingEscrowModuleBookingEscrowAbi as bookingEscrowAbi,
-  bookingEscrowModuleBookingEscrowAddress as bookingEscrowAddress,
-} from "../generated";
+// import {
+//   bookingEscrowModuleBookingEscrowAbi as bookingEscrowAbi,
+//   bookingEscrowModuleBookingEscrowAddress as bookingEscrowAddress,
+// } from "../generated";
 import { useWriteContract } from "wagmi";
 
 export function BookAgent({
@@ -23,13 +23,14 @@ export function BookAgent({
     setError(null);
     setPending(true);
     try {
-      await writeContractAsync({
-        abi: bookingEscrowAbi,
-        address: bookingEscrowAddress[420420422],
-        functionName: "bookAgent",
-        args: [agent.agent],
-      });
-      onBook();
+      // await writeContractAsync({
+      //   abi: bookingEscrowAbi,
+      //   address: bookingEscrowAddress[420420422],
+      //   functionName: "bookAgent",
+      //   args: [agent.agent],
+      // });
+      // onBook();
+      setError("Booking functionality not available with current contracts");
     } catch (err: any) {
       setError(err?.message || "Booking failed");
     } finally {

@@ -9,7 +9,6 @@ const config: HardhatUserConfig = {
   //},
   networks: {
     hardhat: {
-      allowUnlimitedContractSize: true,
       polkavm: true,
       forking: {
         url: "https://testnet-passet-hub-eth-rpc.polkadot.io",

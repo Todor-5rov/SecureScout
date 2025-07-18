@@ -14,350 +14,170 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
-      name: "AccessControl",
+      name: "Ownable",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.AccessControl__factory>;
-    getContractFactory(
-      name: "IAccessControl",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IAccessControl__factory>;
-    getContractFactory(
-      name: "IERC1155Errors",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IERC1155Errors__factory>;
-    getContractFactory(
-      name: "IERC20Errors",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IERC20Errors__factory>;
-    getContractFactory(
-      name: "IERC721Errors",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IERC721Errors__factory>;
-    getContractFactory(
-      name: "ERC20",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.ERC20__factory>;
-    getContractFactory(
-      name: "ERC20Burnable",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.ERC20Burnable__factory>;
-    getContractFactory(
-      name: "IERC20Metadata",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IERC20Metadata__factory>;
-    getContractFactory(
-      name: "IERC20",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IERC20__factory>;
-    getContractFactory(
-      name: "ERC165",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.ERC165__factory>;
-    getContractFactory(
-      name: "IERC165",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IERC165__factory>;
+    ): Promise<Contracts.Ownable__factory>;
     getContractFactory(
       name: "Pausable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Pausable__factory>;
     getContractFactory(
-      name: "AgentRegistry",
+      name: "ReentrancyGuard",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.AgentRegistry__factory>;
+    ): Promise<Contracts.ReentrancyGuard__factory>;
     getContractFactory(
-      name: "BookingEscrow",
+      name: "JobRegistry",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.BookingEscrow__factory>;
+    ): Promise<Contracts.JobRegistry__factory>;
     getContractFactory(
-      name: "ConsumerRegistry",
+      name: "PaymentRegistry",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.ConsumerRegistry__factory>;
+    ): Promise<Contracts.PaymentRegistry__factory>;
     getContractFactory(
-      name: "MyToken",
+      name: "RatingRegistry",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MyToken__factory>;
+    ): Promise<Contracts.RatingRegistry__factory>;
     getContractFactory(
-      name: "AgentRegistry",
+      name: "SecureScoutHub",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.AgentRegistry__factory>;
+    ): Promise<Contracts.SecureScoutHub__factory>;
     getContractFactory(
-      name: "AgentRegistryOLD",
+      name: "SimpleTest",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.AgentRegistryOLD__factory>;
+    ): Promise<Contracts.SimpleTest__factory>;
     getContractFactory(
-      name: "ConsumerRegistry",
+      name: "UserRegistry",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.ConsumerRegistry__factory>;
+    ): Promise<Contracts.UserRegistry__factory>;
 
     getContractAt(
-      name: "AccessControl",
+      name: "Ownable",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.AccessControl>;
-    getContractAt(
-      name: "IAccessControl",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IAccessControl>;
-    getContractAt(
-      name: "IERC1155Errors",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IERC1155Errors>;
-    getContractAt(
-      name: "IERC20Errors",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IERC20Errors>;
-    getContractAt(
-      name: "IERC721Errors",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IERC721Errors>;
-    getContractAt(
-      name: "ERC20",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.ERC20>;
-    getContractAt(
-      name: "ERC20Burnable",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.ERC20Burnable>;
-    getContractAt(
-      name: "IERC20Metadata",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IERC20Metadata>;
-    getContractAt(
-      name: "IERC20",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IERC20>;
-    getContractAt(
-      name: "ERC165",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.ERC165>;
-    getContractAt(
-      name: "IERC165",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IERC165>;
+    ): Promise<Contracts.Ownable>;
     getContractAt(
       name: "Pausable",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.Pausable>;
     getContractAt(
-      name: "AgentRegistry",
+      name: "ReentrancyGuard",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.AgentRegistry>;
+    ): Promise<Contracts.ReentrancyGuard>;
     getContractAt(
-      name: "BookingEscrow",
+      name: "JobRegistry",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.BookingEscrow>;
+    ): Promise<Contracts.JobRegistry>;
     getContractAt(
-      name: "ConsumerRegistry",
+      name: "PaymentRegistry",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.ConsumerRegistry>;
+    ): Promise<Contracts.PaymentRegistry>;
     getContractAt(
-      name: "MyToken",
+      name: "RatingRegistry",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.MyToken>;
+    ): Promise<Contracts.RatingRegistry>;
     getContractAt(
-      name: "AgentRegistry",
+      name: "SecureScoutHub",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.AgentRegistry>;
+    ): Promise<Contracts.SecureScoutHub>;
     getContractAt(
-      name: "AgentRegistryOLD",
+      name: "SimpleTest",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.AgentRegistryOLD>;
+    ): Promise<Contracts.SimpleTest>;
     getContractAt(
-      name: "ConsumerRegistry",
+      name: "UserRegistry",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.ConsumerRegistry>;
+    ): Promise<Contracts.UserRegistry>;
 
     deployContract(
-      name: "AccessControl",
+      name: "Ownable",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.AccessControl>;
-    deployContract(
-      name: "IAccessControl",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IAccessControl>;
-    deployContract(
-      name: "IERC1155Errors",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC1155Errors>;
-    deployContract(
-      name: "IERC20Errors",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC20Errors>;
-    deployContract(
-      name: "IERC721Errors",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC721Errors>;
-    deployContract(
-      name: "ERC20",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ERC20>;
-    deployContract(
-      name: "ERC20Burnable",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ERC20Burnable>;
-    deployContract(
-      name: "IERC20Metadata",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC20Metadata>;
-    deployContract(
-      name: "IERC20",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC20>;
-    deployContract(
-      name: "ERC165",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ERC165>;
-    deployContract(
-      name: "IERC165",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC165>;
+    ): Promise<Contracts.Ownable>;
     deployContract(
       name: "Pausable",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Pausable>;
     deployContract(
-      name: "AgentRegistry",
+      name: "ReentrancyGuard",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.AgentRegistry>;
+    ): Promise<Contracts.ReentrancyGuard>;
     deployContract(
-      name: "BookingEscrow",
+      name: "JobRegistry",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.BookingEscrow>;
+    ): Promise<Contracts.JobRegistry>;
     deployContract(
-      name: "ConsumerRegistry",
+      name: "PaymentRegistry",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ConsumerRegistry>;
+    ): Promise<Contracts.PaymentRegistry>;
     deployContract(
-      name: "MyToken",
+      name: "RatingRegistry",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MyToken>;
+    ): Promise<Contracts.RatingRegistry>;
     deployContract(
-      name: "AgentRegistry",
+      name: "SecureScoutHub",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.AgentRegistry>;
+    ): Promise<Contracts.SecureScoutHub>;
     deployContract(
-      name: "AgentRegistryOLD",
+      name: "SimpleTest",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.AgentRegistryOLD>;
+    ): Promise<Contracts.SimpleTest>;
     deployContract(
-      name: "ConsumerRegistry",
+      name: "UserRegistry",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ConsumerRegistry>;
+    ): Promise<Contracts.UserRegistry>;
 
     deployContract(
-      name: "AccessControl",
+      name: "Ownable",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.AccessControl>;
-    deployContract(
-      name: "IAccessControl",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IAccessControl>;
-    deployContract(
-      name: "IERC1155Errors",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC1155Errors>;
-    deployContract(
-      name: "IERC20Errors",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC20Errors>;
-    deployContract(
-      name: "IERC721Errors",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC721Errors>;
-    deployContract(
-      name: "ERC20",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ERC20>;
-    deployContract(
-      name: "ERC20Burnable",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ERC20Burnable>;
-    deployContract(
-      name: "IERC20Metadata",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC20Metadata>;
-    deployContract(
-      name: "IERC20",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC20>;
-    deployContract(
-      name: "ERC165",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ERC165>;
-    deployContract(
-      name: "IERC165",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IERC165>;
+    ): Promise<Contracts.Ownable>;
     deployContract(
       name: "Pausable",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Pausable>;
     deployContract(
-      name: "AgentRegistry",
+      name: "ReentrancyGuard",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.AgentRegistry>;
+    ): Promise<Contracts.ReentrancyGuard>;
     deployContract(
-      name: "BookingEscrow",
+      name: "JobRegistry",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.BookingEscrow>;
+    ): Promise<Contracts.JobRegistry>;
     deployContract(
-      name: "ConsumerRegistry",
+      name: "PaymentRegistry",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ConsumerRegistry>;
+    ): Promise<Contracts.PaymentRegistry>;
     deployContract(
-      name: "MyToken",
+      name: "RatingRegistry",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MyToken>;
+    ): Promise<Contracts.RatingRegistry>;
     deployContract(
-      name: "AgentRegistry",
+      name: "SecureScoutHub",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.AgentRegistry>;
+    ): Promise<Contracts.SecureScoutHub>;
     deployContract(
-      name: "AgentRegistryOLD",
+      name: "SimpleTest",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.AgentRegistryOLD>;
+    ): Promise<Contracts.SimpleTest>;
     deployContract(
-      name: "ConsumerRegistry",
+      name: "UserRegistry",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.ConsumerRegistry>;
+    ): Promise<Contracts.UserRegistry>;
 
     // default types
     getContractFactory(
