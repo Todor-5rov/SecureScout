@@ -264,7 +264,6 @@ This is a hackathon project demonstrating Web3 security marketplace concepts. Co
 - Bug fixes and improvements
 - Feature enhancements
 - Documentation updates
-- Security audits
 
 ## 📄 License
 
